@@ -42,6 +42,26 @@ function login() {
   }
 }
 </script>
+<script>
+function loginUser() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
+  // 👑 Admin Account (sirf aapke liye)
+  if (email === "admin@pifreelancer.com" && password === "admin123") {
+    alert("Admin Login Successful");
+    window.location.href = "admin-dashboard.html";
+    return;
+  }
+
+  // 👤 Normal User Login
+  if (email && password) {
+    alert("User Login Successful");
+    window.location.href = "jobs.html";
+  } else {
+    alert("Please enter email and password");
+  }
+}
+</script>
 </body>
 </html>
