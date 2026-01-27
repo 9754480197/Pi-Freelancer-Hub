@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard - PiFreelancerHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: #1c1c1c;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+    button {
+      background: #f4b400;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+<header>👑 Admin Control Panel</header>
+
+<div class="container">
+
+  <div class="card">
+    <h3>⚠️ Send Warning to User</h3>
+    <input type="email" placeholder="User Email">
+    <textarea placeholder="Warning Message"></textarea>
+    <button>Send Warning</button>
+  </div>
+
+  <div class="card">
+    <h3>⛔ Suspend Account</h3>
+    <input type="email" placeholder="User Email">
+    <textarea placeholder="Reason for Suspension"></textarea>
+    <button>Suspend User</button>
+  </div>
+
+  <div class="card">
+    <h3>📢 Platform Notice</h3>
+    <textarea placeholder="Write notice for all users"></textarea>
+    <button>Publish Notice</button>
+  </div>
+
+</div>
+
+</body>
+</html>
