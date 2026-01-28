@@ -18,25 +18,44 @@
 function loginUser() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  let message = document.getElementById("message");
 
-  // 🔍 Check if user exists in localStorage (signup data)
+  // 👑 MASTER ADMIN LOGIN (hardcoded)
+  if(email === "admin@pifreelancer.com" && password === "admin123") {
+    localStorage.setItem("loggedInUser", email);
+    localStorage.setItem(email, JSON.stringify({
+      username: "MK Admin",
+      email: email,
+      role: "admin"
+    }));
+    window.location.href = "admin-dashboard.html";
+    return;
+  }
+
+  // 🔍 Normal user login (signup se data)
   let userData = localStorage.getItem(email);
 
   if(!userData) {
-    document.getElementById("message").innerText = "User not found!";
+    message.innerText = "User not found!";
     return;
   }
 
   let user = JSON.parse(userData);
 
   if(user.password !== password) {
-    document.getElementById("message").innerText = "Wrong password!";
+    message.innerText = "Wrong password!";
+    return;
+  }
+
+  // 🚫 Suspended user check (future use)
+  if(user.suspended === true) {
+    message.innerText = "Account Suspended. Contact Admin.";
     return;
   }
 
   localStorage.setItem("loggedInUser", email);
 
-  // 👑 Admin check
+  // 👑 Role check
   if(user.role === "admin") {
     window.location.href = "admin-dashboard.html";
   } else {
